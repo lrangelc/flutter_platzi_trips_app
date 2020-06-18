@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 
+import 'package:platzi_trips_app/description_place.dart';
+
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+  final stars = 3;
+  final title = 'Duwili Ella';
+  final description =
+      'Veniam laborum ad nisi velit officia ipsum cupidatat ut cupidatat laboris culpa anim mollit do. Et qui voluptate magna irure elit eu esse non velit Lorem irure. Consequat duis laborum aliquip ex amet nostrud deserunt veniam exercitation labore dolor. Nulla dolore labore cupidatat aliquip occaecat minim magna nisi amet. Magna eiusmod dolor deserunt mollit irure exercitation.';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -29,42 +36,47 @@ class MyApp extends StatelessWidget {
       // home: MyHomePage(title: 'Flutter Demo Home Page'),
       home: Scaffold(
         appBar: AppBar(
-          leading: Icon(Icons.keyboard_arrow_left),
           title: Text(
-            'Share',
+            'Hello World!',
           ),
-          backgroundColor: Color.fromRGBO(214, 57, 101, 1.0),
         ),
-        body: Stack(
-          children: [
-            Container(
-              width: double.infinity,
-              child: Image.network(
-                'https://i.picsum.photos/id/191/200/300.jpg?hmac=CHbfFOcICYpJ4GXstpLztK5ds_l5NYOdgHORuCEIY_g',
-                height: double.infinity,
-                fit: BoxFit.cover,
-              ),
-            ),
-            Center(
-              child: Container(
-                width: double.infinity,
-                height: 100.0,
-                color: Color.fromRGBO(0, 0, 0, 0.4),
-                child: Center(
-                  child: Text(
-                    'Naughty',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 40,
-                      fontWeight: FontWeight.w400
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ],
+        body: DescriptionPlace(
+          title: title,
+          stars: stars,
+          description: description,
         ),
       ),
+    );
+  }
+
+  Stack buildStack() {
+    return Stack(
+      children: [
+        Container(
+          width: double.infinity,
+          child: Image.network(
+            'https://i.picsum.photos/id/191/200/300.jpg?hmac=CHbfFOcICYpJ4GXstpLztK5ds_l5NYOdgHORuCEIY_g',
+            height: double.infinity,
+            fit: BoxFit.cover,
+          ),
+        ),
+        Center(
+          child: Container(
+            width: double.infinity,
+            height: 100.0,
+            color: Color.fromRGBO(0, 0, 0, 0.4),
+            child: Center(
+              child: Text(
+                'Naughty',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 40,
+                    fontWeight: FontWeight.w400),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
