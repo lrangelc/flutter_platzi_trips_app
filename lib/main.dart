@@ -26,7 +26,45 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      // home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: Scaffold(
+        appBar: AppBar(
+          leading: Icon(Icons.keyboard_arrow_left),
+          title: Text(
+            'Share',
+          ),
+          backgroundColor: Color.fromRGBO(214, 57, 101, 1.0),
+        ),
+        body: Stack(
+          children: [
+            Container(
+              width: double.infinity,
+              child: Image.network(
+                'https://i.picsum.photos/id/191/200/300.jpg?hmac=CHbfFOcICYpJ4GXstpLztK5ds_l5NYOdgHORuCEIY_g',
+                height: double.infinity,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Center(
+              child: Container(
+                width: double.infinity,
+                height: 100.0,
+                color: Color.fromRGBO(0, 0, 0, 0.4),
+                child: Center(
+                  child: Text(
+                    'Naughty',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 40,
+                      fontWeight: FontWeight.w400
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
