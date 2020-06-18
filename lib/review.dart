@@ -69,6 +69,7 @@ class Review extends StatelessWidget {
         Row(
           children: [
             userInfo,
+            SizedBox(width: 10.0,),
             Stars(
               stars: stars,
               size: 14.0,

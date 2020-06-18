@@ -44,16 +44,17 @@ class MyApp extends StatelessWidget {
             'Hello World!',
           ),
         ),
-        body: Column(
-          children: [
-            DescriptionPlace(
-              title: place['title'],
-              stars: place['stars'],
-              description: place['description'],
-            ),
-            ReviewList(),
-          ],
-        ),
+        body: ReviewList(),
+        // body: Column(
+        //   children: [
+        //     DescriptionPlace(
+        //       title: place['title'],
+        //       stars: place['stars'],
+        //       description: place['description'],
+        //     ),
+        //     ReviewList(),
+        //   ],
+        // ),
       ),
     );
   }
