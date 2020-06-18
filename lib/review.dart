@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:platzi_trips_app/stars.dart';
 
 class Review extends StatelessWidget {
   final String name;
@@ -6,6 +7,7 @@ class Review extends StatelessWidget {
   final int reviews;
   final int photos;
   final String comment;
+  final int stars;
 
   const Review(
       {Key key,
@@ -13,7 +15,8 @@ class Review extends StatelessWidget {
       this.pathImage,
       this.reviews,
       this.photos,
-      this.comment})
+      this.comment,
+      this.stars})
       : super(key: key);
   // final String pathImage = 'https://picsum.photos/id/237/200/300';
 
@@ -63,7 +66,15 @@ class Review extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         userName,
-        userInfo,
+        Row(
+          children: [
+            userInfo,
+            Stars(
+              stars: stars,
+              size: 14.0,
+            ),
+          ],
+        ),
         userComment,
       ],
     );

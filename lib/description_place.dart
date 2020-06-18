@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:platzi_trips_app/stars.dart';
+
 class DescriptionPlace extends StatelessWidget {
   final String title;
   final int stars;
@@ -27,7 +29,11 @@ class DescriptionPlace extends StatelessWidget {
             textAlign: TextAlign.left,
           ),
         ),
-        _stars(stars)
+        Container(
+            margin: EdgeInsets.only(
+              top: 320.0,
+            ),
+            child: Stars(stars: stars)),
       ],
     );
 
@@ -49,32 +55,6 @@ class DescriptionPlace extends StatelessWidget {
         titleStarsWidget,
         descriptionWidget,
       ],
-    );
-  }
-
-  Widget _stars(int stars) {
-    List<Widget> starsOn = [];
-    List<Widget> starsOff = [];
-    List(stars).forEach((element) => starsOn.add(_star(true)));
-    List(5 - stars).forEach((element) => starsOff.add(_star(false)));
-
-    List<Widget> starsFinal = []..addAll(starsOn)..addAll(starsOff);
-
-    return Row(
-      children: starsFinal,
-    );
-  }
-
-  Widget _star(bool isOn) {
-    return Container(
-      margin: EdgeInsets.only(
-        top: 323.0,
-        right: 3.0,
-      ),
-      child: Icon(
-        isOn ? Icons.star : Icons.star_border,
-        color: Color(0xFFf2C611),
-      ),
     );
   }
 }
