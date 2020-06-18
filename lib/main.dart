@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:platzi_trips_app/description_place.dart';
+import 'package:platzi_trips_app/review.dart';
 
 void main() {
   runApp(MyApp());
@@ -40,10 +41,15 @@ class MyApp extends StatelessWidget {
             'Hello World!',
           ),
         ),
-        body: DescriptionPlace(
-          title: title,
-          stars: stars,
-          description: description,
+        body: Column(
+          children: [
+            DescriptionPlace(
+              title: title,
+              stars: stars,
+              description: description,
+            ),
+            Review(reviews: 1,pathImage: 'https://picsum.photos/id/237/200/300',photos: 5,comment: 'Super Cool!',name: 'Luis Rangel',)
+          ],
         ),
       ),
     );
