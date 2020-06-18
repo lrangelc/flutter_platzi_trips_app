@@ -38,7 +38,7 @@ class DescriptionPlace extends StatelessWidget {
     );
 
     final descriptionWidget = Container(
-      height: 50.0,
+      height: 70.0,
       margin: EdgeInsets.all(20.0),
       child: SingleChildScrollView(
         child: Text(

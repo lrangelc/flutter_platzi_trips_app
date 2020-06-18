@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:platzi_trips_app/description_place.dart';
+import 'package:platzi_trips_app/gradient_back.dart';
 import 'package:platzi_trips_app/review_list.dart';
 
 void main() {
@@ -39,12 +40,23 @@ class MyApp extends StatelessWidget {
       ),
       // home: MyHomePage(title: 'Flutter Demo Home Page'),
       home: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'Hello World!',
-          ),
+        body: Stack(
+          children: [
+            ListView(
+              children: [
+                DescriptionPlace(
+                  title: place['title'],
+                  stars: place['stars'],
+                  description: place['description'],
+                ),
+                ReviewList(),
+              ],
+            ),
+            GradientBack(
+              title: 'Popular',
+            ),
+          ],
         ),
-        body: ReviewList(),
         // body: Column(
         //   children: [
         //     DescriptionPlace(
