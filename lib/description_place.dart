@@ -21,9 +21,9 @@ class DescriptionPlace extends StatelessWidget {
           child: Text(
             title,
             style: TextStyle(
-              fontSize: 30.0,
-              fontWeight: FontWeight.w900,
-            ),
+                fontSize: 30.0,
+                fontWeight: FontWeight.w900,
+                fontFamily: 'Lato'),
             textAlign: TextAlign.left,
           ),
         ),
@@ -37,6 +37,9 @@ class DescriptionPlace extends StatelessWidget {
       child: SingleChildScrollView(
         child: Text(
           description,
+          style: TextStyle(
+            fontFamily: 'Lato',
+          ),
         ),
       ),
     );
