@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
 
 class DescriptionPlace extends StatelessWidget {
+  final String title;
+  final int stars;
+  final String description;
+
+  const DescriptionPlace({Key key, this.title, this.stars, this.description})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    final star = Container(
-      margin: EdgeInsets.only(
-        top: 323.0,
-        right: 3.0,
-      ),
-      child: Icon(
-        Icons.star,
-        color: Color(0xFFf2C611),
-      ),
-    );
-
-    final titleStars = Row(
+    final titleStarsWidget = Row(
       children: <Widget>[
         Container(
           margin: EdgeInsets.only(
@@ -23,7 +19,7 @@ class DescriptionPlace extends StatelessWidget {
             right: 20.0,
           ),
           child: Text(
-            'Duwili Ella',
+            title,
             style: TextStyle(
               fontSize: 30.0,
               fontWeight: FontWeight.w900,
@@ -31,30 +27,51 @@ class DescriptionPlace extends StatelessWidget {
             textAlign: TextAlign.left,
           ),
         ),
-        Row(
-          children: [
-            star,
-            star,
-            star,
-            star,
-            star,
-          ],
-        ),
+        _stars(stars)
       ],
     );
 
-    final description = Container(
+    final descriptionWidget = Container(
       height: 50.0,
       margin: EdgeInsets.all(20.0),
       child: SingleChildScrollView(
         child: Text(
-          'Incididunt fugiat irure voluptate officia dolor. Sit pariatur consequat adipisicing officia ex qui Lorem. Proident nisi labore nulla mollit. Fugiat esse et veniam cillum aliqua cillum ea culpa consequat culpa nostrud qui exercitation est. Deserunt adipisicing labore velit id est. Ullamco incididunt labore do nostrud deserunt ut irure elit. Labore dolore consectetur excepteur consectetur adipisicing excepteur ullamco fugiat consequat consequat aute.',
+          description,
         ),
       ),
     );
 
     return Column(
-      children: [titleStars, description],
+      children: [
+        titleStarsWidget,
+        descriptionWidget,
+      ],
+    );
+  }
+
+  Widget _stars(int stars) {
+    List<Widget> starsOn = [];
+    List<Widget> starsOff = [];
+    List(stars).forEach((element) => starsOn.add(_star(true)));
+    List(5 - stars).forEach((element) => starsOff.add(_star(false)));
+
+    List<Widget> starsFinal = []..addAll(starsOn)..addAll(starsOff);
+
+    return Row(
+      children: starsFinal,
+    );
+  }
+
+  Widget _star(bool isOn) {
+    return Container(
+      margin: EdgeInsets.only(
+        top: 323.0,
+        right: 3.0,
+      ),
+      child: Icon(
+        isOn ? Icons.star : Icons.star_border,
+        color: Color(0xFFf2C611),
+      ),
     );
   }
 }
