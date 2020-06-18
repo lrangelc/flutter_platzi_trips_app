@@ -52,7 +52,9 @@ class MyApp extends StatelessWidget {
                 ReviewList(),
               ],
             ),
-            GradientBack(),
+            GradientBack(
+              title: 'Popular',
+            ),
           ],
         ),
         // body: Column(
