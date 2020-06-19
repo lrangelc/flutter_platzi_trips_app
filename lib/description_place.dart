@@ -30,15 +30,16 @@ class DescriptionPlace extends StatelessWidget {
           ),
         ),
         Container(
-            margin: EdgeInsets.only(
-              top: 320.0,
-            ),
-            child: Stars(stars: stars)),
+          margin: EdgeInsets.only(
+            top: 320.0,
+          ),
+          child: Stars(stars: stars),
+        ),
       ],
     );
 
     final descriptionWidget = Container(
-      height: 70.0,
+      height: 100.0,
       margin: EdgeInsets.all(20.0),
       child: SingleChildScrollView(
         child: Text(

@@ -18,7 +18,6 @@ class Review extends StatelessWidget {
       this.comment,
       this.stars})
       : super(key: key);
-  // final String pathImage = 'https://picsum.photos/id/237/200/300';
 
   @override
   Widget build(BuildContext context) {
